@@ -1,4 +1,3 @@
-
 const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
 
@@ -40,6 +39,12 @@ function calculaTempo(tempoObjetivo) {
     } else {
         return [0,0,0,0];
     }
+}
+
+function atualizaCronometro(){
+   
+    for (let i=0; i<contadores.length;i++){
+        document.getElementById("dias"+i).textContent = calculaTempo(tempos[i])[0];
         document.getElementById("horas"+i).textContent = calculaTempo(tempos[i])[1];  
         document.getElementById("min"+i).textContent = calculaTempo(tempos[i])[2];
         document.getElementById("seg"+i).textContent = calculaTempo(tempos[1])[3];
@@ -53,5 +58,5 @@ function comecaCronometro(){
     atualizaCronometro();
     setInterval(atualizaCronometro,1000);
 }
-comecaCronometro();
 
+comecaCronometro();
